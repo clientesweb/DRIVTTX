@@ -1,318 +1,223 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Preloader
-    const preloader = document.getElementById('preloader');
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            preloader.style.opacity = '0';
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 500);
-        }, 1000);
-    });
+// Preloader
+window.addEventListener('load', function() {
+    document.getElementById('preloader').style.display = 'none';
+});
 
-    // Top Banner with rotating messages and call-to-action buttons
-    const bannerMessages = [
-        {
-            text: "Latest news: Stay informed with DRIVTT Cars - Dubai's premier car videography service",
-            cta: "View News",
-            link: "#noticias"
+// Fade-in effect
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+});
+
+document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+// Carousel
+let currentSlide = 0;
+const slides = document.querySelectorAll('#carousel img');
+const totalSlides = slides.length;
+
+function showSlide(n) {
+    currentSlide = (n + totalSlides) % totalSlides;
+    const offset = -currentSlide * 100;
+    document.getElementById('carousel').style.transform = `translateX(${offset}%)`;
+}
+
+document.getElementById('prevBtn').addEventListener('click', () => showSlide(currentSlide - 1));
+document.getElementById('nextBtn').addEventListener('click', () => showSlide(currentSlide + 1));
+
+// Auto-advance carousel
+setInterval(() => showSlide(currentSlide + 1), 5000);
+
+// YouTube API
+let player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('live-video-container', {
+        height: '360',
+        width: '640',
+        videoId: 'VIDEO_ID', // Replace with your video ID
+        playerVars: {
+            'autoplay': 1,
+            'controls': 1,
         },
-        {
-            text: "Book your luxury car video shoot today",
-            cta: "Book Now",
-            link: "#contacto"
-        },
-        {
-            text: "Download our app to stay connected",
-            cta: "Download App",
-            link: "#descargar-app"
-        },
-        {
-            text: "Follow DRIVTT Cars on all our social media",
-            cta: "Follow",
-            link: "https://www.instagram.com/drivtt"
-        }
-    ];
-    const bannerElement = document.getElementById('banner-messages');
-    let currentMessageIndex = 0;
-
-    function setupBannerMessages() {
-        bannerElement.innerHTML = bannerMessages.map(message => `
-            <div class="flex-shrink-0 w-full flex justify-between items-center">
-                <span>${message.text}</span>
-                <a href="${message.link}" class="ml-4 bg-black text-primary px-3 py-1 rounded-full text-sm font-bold hover:bg-gray-800 transition-colors duration-300">${message.cta}</a>
-            </div>
-        `).join('');
-    }
-
-    function rotateBannerMessage() {
-        currentMessageIndex = (currentMessageIndex + 1) % bannerMessages.length;
-        bannerElement.style.transform = `translateX(-${currentMessageIndex * 100}%)`;
-    }
-
-    setupBannerMessages();
-    setInterval(rotateBannerMessage, 5000); // Rotate message every 5 seconds
-
-    // Image carousel
-    const carousel = document.getElementById('carousel');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    let currentIndex = 0;
-
-    function showSlide(index) {
-        carousel.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + carousel.children.length) % carousel.children.length;
-        showSlide(currentIndex);
-    });
-
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % carousel.children.length;
-        showSlide(currentIndex);
-    });
-
-    // Change slide automatically every 5 seconds
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % carousel.children.length;
-        showSlide(currentIndex);
-    }, 5000);
-
-    // YouTube functionality
-    const API_KEY = 'YOUR_YOUTUBE_API_KEY';
-    const PLAYLIST_ID = 'YOUR_PLAYLIST_ID';
-
-    async function fetchPlaylistItems() {
-        const response = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${PLAYLIST_ID}&maxResults=55&key=${API_KEY}`);
-        const data = await response.json();
-        return data.items;
-    }
-
-    function displayLiveVideo(video) {
-        const liveContainer = document.getElementById('live-video-container');
-        liveContainer.innerHTML = `
-            <iframe 
-                class="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/${video.snippet.resourceId.videoId}?autoplay=1" 
-                frameborder="0" 
-                allow="autoplay; encrypted-media" 
-                allowfullscreen>
-            </iframe>
-        `;
-    }
-
-    function displayPlaylist(videos) {
-        const playlistContainer = document.getElementById('playlist-container');
-        playlistContainer.innerHTML = '';
-
-        videos.slice(1, 5).forEach(video => {
-            const videoItem = document.createElement('div');
-            videoItem.classList.add('flex-shrink-0', 'w-72', 'h-40');
-            videoItem.innerHTML = `
-                <iframe 
-                    class="w-full h-full rounded-xl"
-                    src="https://www.youtube.com/embed/${video.snippet.resourceId.videoId}" 
-                    frameborder="0" 
-                    allow="encrypted-media" 
-                    allowfullscreen>
-                </iframe>
-            `;
-            playlistContainer.appendChild(videoItem);
-        });
-    }
-
-    async function loadVideos() {
-        const videos = await fetchPlaylistItems();
-        if (videos.length > 0) {
-            const latestVideos = videos.reverse().slice(0, 5);
-            displayLiveVideo(latestVideos[0]);
-            displayPlaylist(latestVideos);
-        } else {
-            console.warn('No videos found in the playlist.');
-        }
-    }
-
-    loadVideos();
-
-    // WhatsApp functionality
-    const whatsappBtn = document.getElementById('whatsappBtn');
-    const whatsappModal = document.getElementById('whatsappModal');
-    const closeModal = document.getElementById('closeModal');
-    const sendMessageBtn = document.getElementById('sendMessageBtn');
-    const whatsappMessage = document.getElementById('whatsappMessage');
-
-    whatsappBtn.addEventListener('click', () => {
-        whatsappModal.classList.remove('hidden');
-    });
-
-    closeModal.addEventListener('click', () => {
-        whatsappModal.classList.add('hidden');
-    });
-
-    sendMessageBtn.addEventListener('click', () => {
-        const message = whatsappMessage.value.trim();
-        if (message) {
-            const phoneNumber = '+971558363696';
-            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
-            whatsappModal.classList.add('hidden');
-            whatsappMessage.value = '';
-        } else {
-            alert('Please write a message before sending.');
+        events: {
+            'onReady': onPlayerReady,
         }
     });
+}
 
-    // Close the modal if clicked outside
-    window.addEventListener('click', (event) => {
-        if (event.target === whatsappModal) {
-            whatsappModal.classList.add('hidden');
-        }
-    });
+function onPlayerReady(event) {
+    event.target.playVideo();
+}
 
-    // PWA installation functionality
-    let deferredPrompt;
-    const installButton = document.getElementById('install-button');
+// Load YouTube IFrame Player API code asynchronously
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        installButton.classList.remove('hidden');
-    });
+// Load playlist videos
+function loadPlaylistVideos() {
+    const playlistId = 'YOUR_PLAYLIST_ID'; // Replace with your playlist ID
+    const apiKey = 'YOUR_API_KEY'; // Replace with your YouTube API key
+    const maxResults = 10; // Number of videos to load
 
-    installButton.addEventListener('click', async () => {
-        if (deferredPrompt) {
-            deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            if (outcome === 'accepted') {
-                console.log('User accepted the install prompt');
-            }
-            deferredPrompt = null;
-        }
-    });
+    fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${maxResults}&playlistId=${playlistId}&key=${apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+            const playlistContainer = document.getElementById('playlist-container');
+            data.items.forEach(item => {
+                const videoId = item.snippet.resourceId.videoId;
+                const title = item.snippet.title;
+                const thumbnail = item.snippet.thumbnails.medium.url;
 
-    // Contact form
-    const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-        const whatsappMessage = `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
-        const phoneNumber = '+971558363696';
-        const url = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
-        window.open(url, '_blank');
-        contactForm.reset();
-    });
-
-    // Newsletter
-    const newsletterForm = document.getElementById('newsletter-form');
-    newsletterForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = newsletterForm.querySelector('input[type="text"]').value;
-        const whatsapp = newsletterForm.querySelector('input[type="tel"]').value;
-        const message = `New newsletter subscriber:%0AName: ${name}%0AWhatsApp: ${whatsapp}`;
-        const phoneNumber = '+971558363696';
-        const url = `https://wa.me/${phoneNumber}?text=${message}`;
-        window.open(url, '_blank');
-        newsletterForm.reset();
-    });
-
-    // Reviews Section
-    const reviews = [
-        { name: "Sarah M.", rating: 5, text: "DRIVTT Cars captured my Lamborghini beautifully. Their attention to detail is unmatched!" },
-        { name: "Ahmed K.", rating: 4, text: "Professional service and stunning results. Will definitely use them again for my next car shoot." },
-        { name: "Emma L.", rating: 5, text: "The drone shots they took of my Porsche were absolutely breathtaking. Highly recommended!" },
-        { name: "Hassan R.", rating: 4, text: "Great team to work with. They made the whole process easy and enjoyable." },
-        { name: "Olivia T.", rating: 5, text: "DRIVTT Cars truly knows how to showcase luxury vehicles. The video they made for my Rolls-Royce is simply perfect." }
-    ];
-
-    const reviewsContainer = document.getElementById('reviews-container');
-    const prevReviewBtn = document.getElementById('prevReview');
-    const nextReviewBtn = document.getElementById('nextReview');
-    let currentReviewIndex = 0;
-
-    function setupReviews() {
-        reviewsContainer.innerHTML = reviews.map(review => `
-            <div class="flex-shrink-0 w-full px-4">
-                <div class="bg-gray-900 p-6 rounded-lg shadow">
-                    <div class="flex items-center mb-4">
-                        <div class="text-primary">
-                            ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}
-                        </div>
-                        <div class="ml-2 font-bold text-white">${review.name}</div>
-                    </div>
-                    <p class="text-gray-300">${review.text}</p>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    function showReview(index) {
-        reviewsContainer.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    prevReviewBtn.addEventListener('click', () => {
-        currentReviewIndex = (currentReviewIndex - 1 + reviews.length) % reviews.length;
-        showReview(currentReviewIndex);
-    });
-
-    nextReviewBtn.addEventListener('click', () => {
-        currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
-        showReview(currentReviewIndex);
-    });
-
-    setupReviews();
-    setInterval(() => {
-        currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
-        showReview(currentReviewIndex);
-    }, 5000); // Auto-rotate reviews every 5 seconds
-
-    // Fade-in effect for sections
-    const fadeInElements = document.querySelectorAll('.fade-in');
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    fadeInElements.forEach(element => {
-        observer.observe(element);
-    });
-
-    // Gallery filter functionality
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const filter = button.getAttribute('data-filter');
-
-            // Update active buttons
-            filterButtons.forEach(btn => btn.classList.remove('active', 'bg-primary', 'text-black'));
-            filterButtons.forEach(btn => btn.classList.add('bg-gray-200', 'text-gray-800'));
-            button.classList.add('active', 'bg-primary', 'text-black');
-            button.classList.remove('bg-gray-200', 'text-gray-800');
-
-            // Filter gallery items
-            galleryItems.forEach(item => {
-                if (filter === 'all' || item.classList.contains(filter)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
+                const videoElement = document.createElement('div');
+                videoElement.className = 'flex-shrink-0 w-64';
+                videoElement.innerHTML = `
+                    <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" rel="noopener noreferrer" class="block">
+                        <img src="${thumbnail}" alt="${title}" class="w-full h-36 object-cover rounded-lg shadow-md">
+                        <p class="mt-2 text-sm font-semibold">${title}</p>
+                    </a>
+                `;
+                playlistContainer.appendChild(videoElement);
             });
+        })
+        .catch(error => console.error('Error loading playlist:', error));
+}
+
+loadPlaylistVideos();
+
+// Contact form submission
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Add your form submission logic here
+    alert('Thank you for your message. We will get back to you soon!');
+    this.reset();
+});
+
+// Newsletter form submission
+document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Add your newsletter subscription logic here
+    alert('Thank you for subscribing to our newsletter!');
+    this.reset();
+});
+
+// Scroll to top button
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.remove('hidden');
+    } else {
+        scrollToTopBtn.classList.add('hidden');
+    }
+});
+
+scrollToTopBtn.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Gallery filter
+const filterButtons = document.querySelectorAll('.filter-btn');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        
+        filterButtons.forEach(btn => btn.classList.remove('active', 'bg-primary', 'text-black'));
+        button.classList.add('active', 'bg-primary', 'text-black');
+
+        galleryItems.forEach(item => {
+            if (filter === 'all' || item.classList.contains(filter)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
         });
     });
 });
 
-console.log("DRIVTT Cars JavaScript loaded successfully!");
+// Reviews
+const reviews = [
+    { name: "John Doe", text: "DRIVTT Cars captured my Lamborghini beautifully. The video quality is outstanding!", rating: 5, profilePic: "path/to/john-doe.jpg" },
+    { name: "Jane Smith", text: "Professional service and amazing results. Highly recommend for any car enthusiast.", rating: 5, profilePic: "path/to/jane-smith.jpg" },
+    { name: "Mike Johnson", text: "The team at DRIVTT Cars knows how to showcase luxury vehicles. Excellent work!", rating: 4, profilePic: "path/to/mike-johnson.jpg" }
+];
+
+function renderReviews() {
+    const container = document.getElementById('reviews-container');
+    container.innerHTML = '';
+    reviews.forEach((review) => {
+        const reviewElement = document.createElement('div');
+        reviewElement.className = 'bg-gray-900 p-6 rounded-lg';
+        reviewElement.innerHTML = `
+            <div class="flex items-center mb-4">
+                <img src="${review.profilePic}" alt="${review.name}" class="w-12 h-12 rounded-full mr-4">
+                <div>
+                    <h3 class="font-bold text-primary">${review.name}</h3>
+                    <div class="flex">
+                        ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}
+                    </div>
+                </div>
+            </div>
+            <p class="text-lg">"${review.text}"</p>
+        `;
+        container.appendChild(reviewElement);
+    });
+}
+
+renderReviews();
+
+// Marcas slider
+const marcas = [
+    { name: "Brand 1", logo: "path/to/brand1-logo.png" },
+    { name: "Brand 2", logo: "path/to/brand2-logo.png" },
+    { name: "Brand 3", logo: "path/to/brand3-logo.png" },
+    { name: "Brand 4", logo: "path/to/brand4-logo.png" },
+    { name: "Brand 5", logo: "path/to/brand5-logo.png" }
+];
+
+function renderMarcas() {
+    const container = document.getElementById('marcas-slider');
+    marcas.forEach((marca) => {
+        const marcaElement = document.createElement('div');
+        marcaElement.className = 'flex-shrink-0 w-48 mx-4';
+        marcaElement.innerHTML = `
+            <img src="${marca.logo}" alt="${marca.name}" class="w-full h-auto">
+        `;
+        container.appendChild(marcaElement);
+    });
+    // Duplicate the brands for seamless looping
+    container.innerHTML += container.innerHTML;
+}
+
+renderMarcas();
+
+// PWA Installation
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById('installPWA').classList.remove('hidden');
+});
+
+document.getElementById('installPWA').addEventListener('click', (e) => {
+    document.getElementById('installPWA').classList.add('hidden');
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the install prompt');
+        } else {
+            console.log('User dismissed the install prompt');
+        }
+        deferredPrompt = null;
+    });
+});
