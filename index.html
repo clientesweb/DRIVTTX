@@ -137,8 +137,67 @@
                 scroll-snap-align: start;
                 flex: 0 0 auto;
             }
+            body {
+            background-color: #000000;
+            color: #ffffff;
         }
-    </style>
+        .bg-black {
+            background-color: #000000;
+        }
+        .text-white {
+            color: #ffffff;
+        }
+        .text-primary {
+            color: #D4AF37;
+        }
+        .border-primary {
+            border-color: #D4AF37;
+        }
+        /* Ensure proper contrast for text on different backgrounds */
+        .bg-primary {
+            background-color: #D4AF37;
+            color: #000000;
+        }
+        .bg-secondary {
+            background-color: #B8860B;
+            color: #ffffff;
+        }
+        /* Add some padding to main content areas */
+        main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        /* Ensure images are visible */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        /* Additional styles to ensure content visibility */
+                /* Make sure iframes (like YouTube embeds) are visible */
+        iframe {
+            border: none;
+            max-width: 100%;
+        }
+        /* Adjust form input styles for better visibility */
+        input, textarea {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+        }
+        /* Ensure buttons are visible and styled correctly */
+        button, .btn {
+            background-color: #D4AF37;
+            color: #000000;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover, .btn:hover {
+            background-color: #B8860B;
+        }
+    </style>        
 </head>
 <body class="font-sans bg-black text-white relative">
     <!-- Preloader -->
