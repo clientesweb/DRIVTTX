@@ -229,15 +229,22 @@
         <section id="playlists" class="mb-12 fade-in">
             <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Live</h2>
             <div id="live-video" class="aspect-w-16 aspect-h-9 mb-8">
-                <div id="live-video-container" class="rounded-xl overflow-hidden shadow-lg" style="width: 100%; padding-bottom: 56.25%; position: relative;">
-                    <!-- The iframe will be inserted here by JavaScript -->
-                </div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/LIVE_VIDEO_ID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
             <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Recent Videos</h2>
-            <div class="overflow-x-auto pb-4">
-                <div id="playlist-container" class="flex space-x-4">
-                    <!-- Videos will be loaded here dynamically -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
@@ -340,7 +347,7 @@
 
         <section id="contacto" class="mb-12 bg-black rounded-xl shadow-lg p-8 fade-in border border-primary">
             <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Contact Us</h2>
-            <form id="contact-form" class="max-w-lg mx-auto">
+            <form id="contact-form" class="max-w-lg mx-auto" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
                 <div class="mb-4">
                     <label for="name" class="block text-primary text-sm font-bold mb-2">Name</label>
                     <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
@@ -498,6 +505,53 @@ tin" class="hover:text-primary transition-colors duration-300">Newsletter</a></l
             </div>
         </div>
     </footer>
+    
+    <!-- Botón de Reservaciones -->
+    <button id="openReservationModal" class="fixed bottom-32 right-4 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-secondary transition-colors duration-300 z-50">
+        <img src="path_to_your_logo.png" alt="DRIVTT Cars Logo" class="w-8 h-8">
+    </button>
+
+    <!-- Modal de Reservaciones -->
+    <div id="reservationModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+            <h2 class="text-2xl font-bold mb-4 text-black">Make a Reservation</h2>
+            <form id="reservationForm">
+                <div class="mb-4">
+                    <label for="reservationName" class="block text-sm font-medium text-gray-700">Name</label>
+                    <input type="text" id="reservationName" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                </div>
+                <div class="mb-4">
+                    <label for="reservationEmail" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="reservationEmail" name="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                </div>
+                <div class="mb-4">
+                    <label for="reservationDate" class="block text-sm font-medium text-gray-700">Preferred Date</label>
+                    <input type="date" id="reservationDate" name="date" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                </div>
+                <div class="mb-4">
+                    <label for="reservationService" class="block text-sm font-medium text-gray-700">Service</label>
+                    <select id="reservationService" name="service" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                        <option value="">Select a service</option>
+                        <option value="photo_shoot">Photo Shoot</option>
+                        <option value="video_shoot">Video Shoot</option>
+                        <option value="event_coverage">Event Coverage</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="reservationMessage" class="block text-sm font-medium text-gray-700">Additional Information</label>
+                    <textarea id="reservationMessage" name="message" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"></textarea>
+                </div>
+                <div class="flex justify-end">
+                    <button type="button" id="closeReservationModal" class="mr-2 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                        Cancel
+                    </button>
+                    <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                        Submit Reservation
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- WhatsApp Button -->
     <a href="https://wa.me/971558363696" target="_blank" rel="noopener noreferrer" class="fixed bottom-20 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 z-50">
