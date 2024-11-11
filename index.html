@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>DRIVTT Cars | Cinematic Cars Videographer</title>
-    <meta name="description" content="Professional cinematic car videography services. Capturing the essence and beauty of automobiles through stunning visuals.">
+    <title>DRIVTT Cars - Videographer</title>
+    <meta name="description" content="Professional car videography services by DRIVTT Cars. Luxury automotive content creation in Dubai.">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="manifest" href="manifest.json">
@@ -14,24 +14,24 @@
     <meta name="apple-mobile-web-app-title" content="DRIVTT Cars">
 
     <!-- SEO Meta Tags -->
-    <link rel="canonical" href="https://drivttcars.com">
+    <link rel="canonical" href="https://drivtt.com">
     <meta name="robots" content="index, follow">
     <meta name="author" content="DRIVTT Cars">
-    <meta name="keywords" content="car videography, automotive cinematography, car films, vehicle showcase, professional car videos">
+    <meta name="keywords" content="car videography, Dubai, luxury cars, automotive content, DRIVTT">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://drivttcars.com/">
-    <meta property="og:title" content="DRIVTT Cars | Cinematic Cars Videographer">
-    <meta property="og:description" content="Professional cinematic car videography services. Capturing the essence and beauty of automobiles through stunning visuals.">
-    <meta property="og:image" content="https://drivttcars.com/images/og-image.jpg">
+    <meta property="og:url" content="https://drivtt.com/">
+    <meta property="og:title" content="DRIVTT Cars - Videographer">
+    <meta property="og:description" content="Professional car videography services by DRIVTT Cars. Luxury automotive content creation in Dubai.">
+    <meta property="og:image" content="https://drivtt.com/images/og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://drivttcars.com/">
-    <meta property="twitter:title" content="DRIVTT Cars | Cinematic Cars Videographer">
-    <meta property="twitter:description" content="Professional cinematic car videography services. Capturing the essence and beauty of automobiles through stunning visuals.">
-    <meta property="twitter:image" content="https://drivttcars.com/images/twitter-image.jpg">
+    <meta property="twitter:url" content="https://drivtt.com/">
+    <meta property="twitter:title" content="DRIVTT Cars - Videographer">
+    <meta property="twitter:description" content="Professional car videography services by DRIVTT Cars. Luxury automotive content creation in Dubai.">
+    <meta property="twitter:image" content="https://drivtt.com/images/twitter-image.jpg">
 
     <!-- Structured Data for Local SEO -->
     <script type="application/ld+json">
@@ -39,38 +39,18 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "DRIVTT Cars",
-      "image": "https://drivttcars.com/images/logo.png",
-      "url": "https://drivttcars.com",
-      "telephone": "+1234567890",
+      "image": "https://drivtt.com/images/logo.png",
+      "url": "https://drivtt.com",
+      "telephone": "+971558363696",
+      "email": "drivtt@hotmail.com",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "123 Car Cinema St",
-        "addressLocality": "Automotive City",
-        "postalCode": "12345",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 40.7128,
-        "longitude": -74.0060
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
-        ],
-        "opens": "09:00",
-        "closes": "18:00"
+        "addressLocality": "Dubai",
+        "addressCountry": "UAE"
       },
       "sameAs": [
-        "https://www.facebook.com/drivttcars",
-        "https://www.twitter.com/drivttcars",
-        "https://www.instagram.com/drivttcars",
-        "https://www.youtube.com/drivttcars"
+        "https://www.instagram.com/drivtt",
+        "https://www.youtube.com/drivtt"
       ]
     }
     </script>
@@ -81,9 +61,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#000000',
-                        secondary: '#FFD700',
-                        accent: '#1A1A1A',
+                        primary: '#D4AF37',
+                        secondary: '#B8860B',
+                        accent: '#000000',
                     },
                     fontFamily: {
                         sans: ['Poppins', 'sans-serif'],
@@ -98,7 +78,7 @@
     <style type="text/tailwindcss">
         @layer utilities {
             .bg-gradient-primary {
-                background-image: linear-gradient(135deg, #000000, #FFD700, #1A1A1A);
+                background-image: linear-gradient(135deg, #D4AF37, #B8860B, #000000);
             }
             .text-shadow {
                 text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
@@ -141,52 +121,75 @@
             .fade-in.visible {
                 opacity: 1;
             }
+            .horizontal-scroll {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            .horizontal-scroll::-webkit-scrollbar {
+                display: none;
+            }
+            .scroll-item {
+                scroll-snap-align: start;
+                flex: 0 0 auto;
+            }
         }
     </style>
 </head>
-<body class="font-sans bg-gray-100 text-gray-800 relative">
+<body class="font-sans bg-black text-white relative">
     <!-- Preloader -->
     <div id="preloader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black">
-        <img src="images/logo.png" alt="Logo DRIVTT Cars" class="w-32 h-32 pulse">
-        <p class="mt-4 text-secondary font-semibold">Cinematic Cars Videographer</p>
+        <img src="images/logo.png" alt="DRIVTT Cars Logo" class="w-32 h-32 pulse">
+        <p class="mt-4 text-primary font-semibold">Powered By Duality Domain</p>
     </div>
 
     <!-- SVG Background -->
     <div class="fixed inset-0 z-0 pointer-events-none opacity-5">
         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
             <defs>
-                <pattern id="car-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                    <text x="10" y="50" font-family="Arial" font-size="20" fill="#333">CARS</text>
-                    <text x="50" y="80" font-family="Arial" font-size="15" fill="#666">CINEMA</text>
+                <pattern id="news-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <text x="10" y="50" font-family="Arial" font-size="20" fill="#D4AF37">DRIVTT</text>
+                    <text x="50" y="80" font-family="Arial" font-size="15" fill="#B8860B">CARS</text>
                 </pattern>
             </defs>
-            <rect width="100%" height="100%" fill="url(#car-pattern)" />
+            <rect width="100%" height="100%" fill="url(#news-pattern)" />
         </svg>
+    </div>
+
+    <!-- Top Banner -->
+    <div class="bg-primary text-black py-2 px-4 overflow-hidden">
+        <div id="banner-messages" class="flex transition-transform duration-1000 ease-in-out">
+            <!-- Messages will be inserted here dynamically -->
+        </div>
     </div>
 
     <!-- Header -->
     <header class="sticky top-0 z-40 bg-black shadow-md">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="images/logo.png" alt="Logo of DRIVTT Cars" class="h-16 mr-4 transition-transform duration-300 hover:scale-105">
+                <img src="images/logo.png" alt="DRIVTT Cars Logo" class="h-16 mr-4 transition-transform duration-300 hover:scale-105">
             </div>
             <nav class="hidden md:flex space-x-6">
-                <a href="#portfolio" class="text-white hover:text-secondary transition-colors duration-300">Portfolio</a>
-                <a href="#services" class="text-white hover:text-secondary transition-colors duration-300">Services</a>
-                <a href="#contact" class="text-white hover:text-secondary transition-colors duration-300">Contact</a>
+                <a href="#playlists" class="text-white hover:text-primary transition-colors duration-300">Home</a>
+                <a href="#noticias" class="text-white hover:text-primary transition-colors duration-300">News</a>
+                <a href="#contacto" class="text-white hover:text-primary transition-colors duration-300">Contact</a>
             </nav>
             <div class="flex items-center space-x-4">
                 <div class="flex space-x-2">
-                    <a href="https://facebook.com/drivttcars" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary transition-colors duration-300">
+                    <a href="https://facebook.com/drivtt" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary transition-colors duration-300">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://twitter.com/drivttcars" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary transition-colors duration-300">
+                    <a href="https://twitter.com/drivtt" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary transition-colors duration-300">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="https://instagram.com/drivttcars" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary transition-colors duration-300">
+                    <a href="https://instagram.com/drivtt" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary transition-colors duration-300">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://youtube.com/drivttcars" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary transition-colors duration-300">
+                    <a href="https://youtube.com/drivtt" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary transition-colors duration-300">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </div>
@@ -198,8 +201,8 @@
         <section class="mb-12 fade-in">
             <div class="relative overflow-hidden rounded-xl shadow-2xl">
                 <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
-                    <img src="images/car1.jpg" alt="Featured car image 1" class="w-full h-auto object-cover">
-                    <!-- Add more images here if necessary -->
+                    <img src="images/uncafeconjj (1).png" alt="Featured Image 1" class="w-full h-auto object-cover">
+                    <!-- Add more images here if needed -->
                 </div>
                 <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 text-gray-800 rounded-full p-2 transition-all duration-300" id="prevBtn">
                     <i class="fas fa-chevron-left"></i>
@@ -210,143 +213,341 @@
             </div>
         </section>
 
-        <section id="portfolio" class="mb-12 fade-in">
-            <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Our Portfolio</h2>
-            <div id="featured-video" class="aspect-w-16 aspect-h-9 mb-8">
-                <div id="featured-video-container" class="rounded-xl overflow-hidden shadow-lg" style="width: 100%; padding-bottom: 56.25%; position: relative;">
+        <section id="playlists" class="mb-12 fade-in">
+            <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Live</h2>
+            <div id="live-video" class="aspect-w-16 aspect-h-9 mb-8">
+                <div id="live-video-container" class="rounded-xl overflow-hidden shadow-lg" style="width: 100%; padding-bottom: 56.25%; position: relative;">
                     <!-- The iframe will be inserted here by JavaScript -->
                 </div>
             </div>
 
-            <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Recent Projects</h2>
+            <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Recent Videos</h2>
             <div class="overflow-x-auto pb-4">
-                <div id="portfolio-container" class="flex space-x-4">
+                <div id="playlist-container" class="flex space-x-4">
                     <!-- Videos will be loaded here dynamically -->
                 </div>
             </div>
         </section>
 
+        <!-- YouTube Shorts Section -->
+        <section id="youtube-shorts" class="mb-12 fade-in">
+            <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Our Shorts</h2>
+            <div class="horizontal-scroll">
+                <!-- Example shorts, replace the IDs with yours -->
+                <div class="scroll-item w-[315px] h-[560px]">
+                    <iframe width="315" height="560" src="https://www.youtube.com/embed/VIDEO_ID1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="scroll-item w-[315px] h-[560px]">
+                    <iframe width="315" height="560" src="https://www.youtube.com/embed/VIDEO_ID2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="scroll-item w-[315px] h-[560px]">
+                    <iframe width="315" height="560" src="https://www.youtube.com/embed/VIDEO_ID3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <!-- Add more shorts as needed -->
+            </div>
+        </section>
+
+        <!-- Instagram Posts Section -->
+        <section id="instagram-posts" class="mb-12 fade-in">
+            <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Our Instagram Posts</h2>
+            <div class="horizontal-scroll">
+                <!-- Example Instagram posts, replace the codes with yours -->
+                <div class="scroll-item w-[330px] h-[440px]">
+                    <iframe src="https://www.instagram.com/p/POST_CODE1/embed" width="330" height="440" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                </div>
+                <div class="scroll-item w-[330px] h-[440px]">
+                    <iframe src="https://www.instagram.com/p/POST_CODE2/embed" width="330" height="440" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                </div>
+                <div class="scroll-item w-[330px] h-[440px]">
+                    <iframe src="https://www.instagram.com/p/POST_CODE3/embed" width="330" height="440" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                </div>
+                <!-- Add more posts as needed -->
+            </div>
+        </section>
+
         <section id="instagram-videos" class="mb-12 fade-in">
             <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Our Reels</h2>
-            <div class="overflow-x-auto">
-                <div class="flex space-x-4">
-                    <div class="instagram-video-item flex-shrink-0 w-80">
-                        <iframe src="https://www.instagram.com/reel/DB_vzITJKC_/embed" class="w-full aspect-[9/16] rounded-xl" allowfullscreen></iframe>
-                    </div>
-                    <div class="instagram-video-item flex-shrink-0 w-80">
-                        <iframe src="https://www.instagram.com/reel/DB_vnY-JgTP/embed" class="w-full aspect-[9/16] rounded-xl" allowfullscreen></iframe>
-                    </div>
-                    <div class="instagram-video-item flex-shrink-0 w-80">
-                        <iframe src="https://www.instagram.com/reel/DB_ZdoYRFEK/embed" class="w-full aspect-[9/16] rounded-xl" allowfullscreen></iframe>
-                    </div>
+            <div class="horizontal-scroll">
+                <div class="scroll-item w-[315px] h-[560px]">
+                    <iframe src="https://www.instagram.com/reel/DB_vzITJKC_/embed" class="w-full h-full rounded-xl" allowfullscreen></iframe>
+                </div>
+                <div class="scroll-item w-[315px] h-[560px]">
+                    <iframe src="https://www.instagram.com/reel/DB_vnY-JgTP/embed" class="w-full h-full rounded-xl" allowfullscreen></iframe>
+                </div>
+                <div class="scroll-item w-[315px] h-[560px]">
+                    <iframe src="https://www.instagram.com/reel/DB_ZdoYRFEK/embed" class="w-full h-full rounded-xl" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
 
-        <section id="services" class="mb-12 bg-gradient-primary text-white rounded-xl shadow-lg p-8 fade-in">
-            <h2 class="text-4xl font-serif font-bold text-center mb-6">Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="text-center">
-                    <i class="fas fa-video text-4xl mb-4"></i>
-                    <h3 class="text-2xl font-bold mb-2">Cinematic Car Videos</h3>
-                    <p>Professional-grade videos showcasing your car in the best light possible.</p>
+        <section id="descargar-app" class="mb-12 bg-gradient-primary text-black rounded-xl shadow-lg p-8 fade-in">
+            <h2 class="text-4xl font-serif font-bold text-center mb-6">Download Our App</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                <div class="text-center md:text-left">
+                    <p class="mb-4">Stay connected with the latest videos and updates from DRIVTT Cars by downloading our mobile app.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#" class="bg-black text-primary px-6 py-2 rounded-lg flex items-center justify-center hover:bg-gray-800 transition-colors duration-300">
+                            <i class="fab fa-android mr-2"></i> Android
+                        </a>
+                        <a href="#" class="bg-black text-primary px-6 py-2 rounded-lg flex items-center justify-center hover:bg-gray-800 transition-colors duration-300">
+                            <i class="fab fa-apple mr-2"></i> iOS
+                        </a>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <i class="fas fa-camera text-4xl mb-4"></i>
-                    <h3 class="text-2xl font-bold mb-2">Car Photography</h3>
-                    <p>High-quality still images perfect for marketing or personal collections.</p>
+                <img src="images/mockup.png" alt="DRIVTT Cars App" class="w-full max-w-xs rounded-xl shadow-lg">
+            </div>
+        </section>
+
+        <section id="programa-banner" class="mb-12 relative fade-in">
+            <img src="images/bannerpublicitario.png" alt="DRIVTT Cars - Program" class="w-full h-auto rounded-xl shadow-lg object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 rounded-xl flex items-center justify-center">
+                <a href="https://www.youtube.com/channel/UCYUfYC2ZzWBmvfRp8ByQweQ" target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-secondary text-black font-bold py-4 px-8 rounded-full transition-all duration-300 text-xl transform hover:scale-105">
+                    Watch on YouTube <i class="fab fa-youtube ml-2"></i>
+                </a>
+            </div>
+        </section>
+
+        <section id="faqs" class="mb-12 bg-black rounded-xl shadow-lg p-8 fade-in border border-primary">
+            <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <details class="bg-gray-900 p-4 rounded-lg">
+                    <summary class="font-bold cursor-pointer text-primary">What services does DRIVTT Cars offer?</summary>
+                    <p class="mt-2">DRIVTT Cars specializes in professional car videography and photography services in Dubai, focusing on luxury and high-performance vehicles.</p>
+                </details>
+                <details class="bg-gray-900 p-4 rounded-lg">
+                    <summary class="font-bold cursor-pointer text-primary">How can I book a video shoot for my car?</summary>
+                    <p class="mt-2">You can book a video shoot by contacting us through our website's contact form or by calling our office directly. We'll discuss your needs and set up an appointment.</p>
+                </details>
+                <details class="bg-gray-900 p-4 rounded-lg">
+                    <summary class="font-bold cursor-pointer text-primary">Do you offer drone videography for cars?</summary>
+                    <p class="mt-2">Yes, we offer drone videography as part of our services to capture stunning aerial shots of your vehicle in various locations around Dubai.</p>
+                </details>
+            </div>
+        </section>
+
+        <section id="contacto" class="mb-12 bg-black rounded-xl shadow-lg p-8 fade-in border border-primary">
+            <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Contact Us</h2>
+            <form id="contact-form" class="max-w-lg mx-auto">
+                <div class="mb-4">
+                    <label for="name" class="block text-primary text-sm font-bold mb-2">Name</label>
+                    <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                 </div>
-                <div class="text-center">
-                    <i class="fas fa-film text-4xl mb-4"></i>
-                    <h3 class="text-2xl font-bold mb-2">Event Coverage</h3>
-                    <p>Comprehensive video coverage for car shows, races, and automotive events.</p>
+                <div class="mb-4">
+                    <label for="email" class="block text-primary text-sm font-bold mb-2">Email</label>
+                    <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                 </div>
-                <div class="text-center">
-                    <i class="fas fa-ad text-4xl mb-4"></i>
-                    <h3 class="text-2xl font-bold mb-2">Promotional Content</h3>
-                    <p>Custom video content for dealerships, manufacturers, and car enthusiasts.</p>
+                <div class="mb-6">
+                    <label for="message" class="block text-primary text-sm font-bold mb-2">Message</label>
+                    <textarea id="message" name="message" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="4" required></textarea>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button type="submit" class="bg-primary hover:bg-secondary text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-colors duration-300">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="galeria" class="mb-12 fade-in">
+            <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Our Gallery</h2>
+            
+            <!-- Filters -->
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button class="filter-btn active bg-primary text-black px-4 py-2 rounded-full transition-colors duration-300 hover:bg-opacity-80" data-filter="all">All</button>
+                <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full transition-colors duration-300 hover:bg-gray-300" data-filter="cars">Cars</button>
+                <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full transition-colors duration-300 hover:bg-gray-300" data-filter="shoots">Shoots</button>
+                <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full transition-colors duration-300 hover:bg-gray-300" data-filter="events">Events</button>
+            </div>
+
+            <!-- Gallery images -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery">
+                <div class="gallery-item cars">
+                    <img src="/placeholder.svg?height=300&width=400" alt="Car 1" class="w-full h-64 object-cover rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+                </div>
+                <div class="gallery-item shoots">
+                    <img src="/placeholder.svg?height=300&width=400" alt="Shoot 1" class="w-full h-64 object-cover rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+                </div>
+                <div class="gallery-item events">
+                    <img src="/placeholder.svg?height=300&width=400" alt="Event 1" class="w-full h-64 object-cover rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+                </div>
+                <div class="gallery-item cars">
+                    <img src="/placeholder.svg?height=300&width=400" alt="Car 2" class="w-full h-64 object-cover rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+                </div>
+                <div class="gallery-item shoots">
+                    <img src="/placeholder.svg?height=300&width=400" alt="Shoot 2" class="w-full h-64 object-cover rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+                </div>
+                <div class="gallery-item events">
+                    <img src="/placeholder.svg?height=300&width=400" alt="Event 2" class="w-full h-64 object-cover rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+                </div>
+                <div class="gallery-item cars">
+                    <img src="/placeholder.svg?height=300&width=400" alt="Car 3" class="w-full h-64 object-cover rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+                </div>
+                <div class="gallery-item shoots">
+                    <img src="/placeholder.svg?height=300&width=400" alt="Shoot 3" class="w-full h-64 object-cover rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
                 </div>
             </div>
         </section>
 
-        <section id="testimonials" class="mb-12 bg-white rounded-xl shadow-lg p-8 fade-in">
-            <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Client Testimonials</h2>
+        <!-- Reviews Section -->
+        <section id="reviews" class="mb-12 bg-black rounded-xl shadow-lg p-8 fade-in border border-primary">
+            <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">What Our Clients Say</h2>
             <div class="relative overflow-hidden">
-                <div id="testimonials-container" class="flex transition-transform duration-500 ease-in-out">
-                    <!-- Testimonials will be inserted here dynamically -->
+                <div id="reviews-container" class="flex transition-transform duration-500 ease-in-out">
+                    <!-- Reviews will be inserted here dynamically -->
                 </div>
-                <button id="prevTestimonial" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 text-gray-800 rounded-full p-2 transition-all duration-300">
+                <button id="prevReview" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-primary bg-opacity-50 hover:bg-opacity-75 text-black rounded-full p-2 transition-all duration-300">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button id="nextTestimonial" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 text-gray-800 rounded-full p-2 transition-all duration-300">
+                <button id="nextReview" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-primary bg-opacity-50 hover:bg-opacity-75 text-black rounded-full p-2 transition-all duration-300">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
         </section>
 
-        <section id="contact" class="mb-12 bg-white rounded-xl shadow-lg p-8 fade-in">
-            <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Contact Us</h2>
-            <form id="contact-form" class="max-w-lg mx-auto">
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
-                    <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+        <!-- Google Map Section -->
+        <section id="map" class="mb-12 fade-in">
+            <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Find Us</h2>
+            <div class="rounded-xl overflow-hidden shadow-lg" style="width: 100%; height: 400px;">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.178703620226!2d55.2707828!3d25.2048493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a67e24b%3A0xff45e502e1ceb7e2!2sDubai%2C%20United%20Arab%20Emirates!5e0!3m2!1sen!2sus!4v1651234567890!5m2!1sen!2sus"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+
+        <section id="boletin" class="mb-12 bg-gradient-primary text-black rounded-xl shadow-lg p-8 fade-in">
+            <h2 class="text-4xl font-serif font-bold text-center mb-6">Subscribe to Our Newsletter</h2>
+            <form id="newsletter-form" class="max-w-md mx-auto">
+                <div class="flex items-center border-b border-black py-2">
+                    <input class="appearance-none bg-transparent border-none w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Your name" aria-label="Full name">
                 </div>
-                <div class="mb-4">
-                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
-                    <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                <div class="flex items-center border-b border-black py-2 mt-4">
+                    <input class="appearance-none bg-transparent border-none w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none" type="tel" placeholder="Your WhatsApp number" aria-label="WhatsApp number">
                 </div>
-                <div class="mb-6">
-                    <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message</label>
-                    <textarea id="message" name="message" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="4" required></textarea>
-                </div>
-                <div class="flex items-center justify-between">
-                    <button type="submit" class="bg-primary hover:bg-opacity-90 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-colors duration-300">
-                        Send Message
+                <div class="flex justify-center mt-6">
+                    <button class="bg-black hover:bg-gray-900 text-primary font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-colors duration-300" type="submit">
+                        Subscribe
                     </button>
                 </div>
             </form>
         </section>
     </main>
 
-    <footer class="bg-black text-white py-12">
+    <footer class="bg-black text-white py-12 pb-24 border-t border-primary">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
                     <img src="images/logo.png" alt="DRIVTT Cars" class="h-24 mb-4 mx-auto md:mx-0">
-                    <p class="text-center md:text-left">Capturing the essence of automotive beauty through cinematic videography.</p>
+                    <p class="text-center md:text-left">Discover the world of luxury cars through the lens of DRIVTT Cars, Dubai's premier automotive videography service.</p>
                 </div>
                 <div class="text-center md:text-left">
                     <h3 class="text-2xl font-bold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="#portfolio" class="hover:text-secondary transition-colors duration-300">Portfolio</a></li>
-                        <li><a href="#services" class="hover:text-secondary transition-colors duration-300">Services</a></li>
-                        <li><a href="#contact" class="hover:text-secondary transition-colors duration-300">Contact</a></li>
+                        <li><a href="#playlists" class="hover:text-primary transition-colors duration-300">Home</a></li>
+                        <li><a href="#noticias" class="hover:text-primary transition-colors duration-300">News</a></li>
+                        <li><a href="#contacto" class="hover:text-primary transition-colors duration-300">Contact</a></li>
+                        <li><a href="#boletin" class="hover:text-primary transition-colors duration-300">Newsletter</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-2xl font-bold mb-4 text-center md:text-left">Follow Us</h3>
                     <div class="flex justify-center md:justify-start space-x-4">
-                        <a href="https://facebook.com/drivttcars" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-secondary transition-colors duration-300">
+                        <a href="https://facebook.com/drivtt" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-primary transition-colors duration-300">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://twitter.com/drivttcars" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-secondary transition-colors duration-300">
+                        <a href="https://twitter.com/drivtt" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-primary transition-colors duration-300">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="https://instagram.com/drivttcars" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-secondary transition-colors duration-300">
+                        <a href="https://instagram.com/drivtt" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-primary transition-colors duration-300">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://youtube.com/drivttcars" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-secondary transition-colors duration-300">
+                        <a href="https://youtube.com/drivtt" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-primary transition-colors duration-300">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-white border-opacity-20 text-center">
-                <p>&copy; 2024 DRIVTT Cars. All rights reserved.</p>
+            <div class="mt-8 pt-8 border-t border-primary border-opacity-20 text-center">
+                <p>&copy; 2024 DRIVTT Cars. All rights reserved. | Developed by <a href="https://dualitydomain.github.io/Dualitydomain/" target="_blank" rel="noopener" class="text-primary hover:underline">Duality Domain</a></p>
             </div>
         </div>
     </footer>
 
+    <div class="fixed bottom-20 right-6 z-50">
+        <button id="whatsappBtn" class="bg-green-500 text-white rounded-full p-4 shadow-lg transition-transform duration-300 hover:scale-110 bounce" aria-label="Chat with DRIVTT Cars on WhatsApp">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </button>
+    </div>
+
+    <div id="whatsappModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold text-primary">Chat with DRIVTT Cars on WhatsApp</h2>
+                <button class="text-gray-500 hover:text-gray-700" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <p class="mb-4">Write your message:</p>
+            <textarea id="whatsappMessage" class="w-full p-2 border border-gray-300 rounded mb-4" rows="4" placeholder="Type your message here..."></textarea>
+            <button id="sendMessageBtn" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition-colors duration-300">
+                <i class="fab fa-whatsapp mr-2"></i> Send message
+            </button>
+        </div>
+    </div>
+
+    <nav class="fixed bottom-0 left-0 right-0 bg-black shadow-lg py-2 px-4 flex justify-around items-center z-40 border-t border-primary">
+        <a href="#playlists" class="flex flex-col items-center text-xs text-white hover:text-primary transition-colors duration-300">
+            <i class="fas fa-home text-xl mb-1"></i>
+            <span>Home</span>
+        </a>
+        <a href="#youtube-shorts" class="flex flex-col items-center text-xs text-white hover:text-primary transition-colors duration-300">
+            <i class="fas fa-video text-xl mb-1"></i>
+            <span>Shorts</span>
+        </a>
+        <a href="#galeria" class="flex flex-col items-center text-xs text-white hover:text-primary transition-colors duration-300">
+            <i class="fas fa-images text-xl mb-1"></i>
+            <span>Gallery</span>
+        </a>
+        <a href="#contacto" class="flex flex-col items-center text-xs text-white hover:text-primary transition-colors duration-300">
+            <i class="fas fa-envelope text-xl mb-1"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+
     <script src="script.js"></script>
+    <script>
+        // JavaScript for gallery filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.getAttribute('data-filter');
+
+                    // Update active buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active', 'bg-primary', 'text-black'));
+                    filterButtons.forEach(btn => btn.classList.add('bg-gray-200', 'text-gray-800'));
+                    button.classList.add('active', 'bg-primary', 'text-black');
+                    button.classList.remove('bg-gray-200', 'text-gray-800');
+
+                    // Filter gallery items
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.classList.contains(filter)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
