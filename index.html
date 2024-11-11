@@ -227,27 +227,51 @@
         </section>
 
         <section id="playlists" class="mb-12 fade-in">
-            <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Live</h2>
-            <div id="live-video" class="aspect-w-16 aspect-h-9 mb-8">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/LIVE_VIDEO_ID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+    <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Live</h2>
+    <div id="live-video" class="aspect-w-16 aspect-h-9 mb-8">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/LIVE_VIDEO_ID" 
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+    </div>
 
-            <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Recent Videos</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <div class="aspect-w-16 aspect-h-9">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="aspect-w-16 aspect-h-9">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="aspect-w-16 aspect-h-9">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="aspect-w-16 aspect-h-9">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+    <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Recent Videos</h2>
+    <!-- Contenedor con scroll horizontal -->
+    <div class="horizontal-scroll">
+        <div class="scroll-item">
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_1" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
             </div>
-        </section>
+        </div>
+        <div class="scroll-item">
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <div class="scroll-item">
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_3" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <div class="scroll-item">
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_4" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- YouTube Shorts Section -->
         <section id="youtube-shorts" class="mb-12 fade-in">
