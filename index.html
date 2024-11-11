@@ -137,6 +137,15 @@
                 scroll-snap-align: start;
                 flex: 0 0 auto;
             }
+            .app-bar {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(10px);
+                z-index: 50;
+            }
         }
     </style>
 </head>
@@ -198,18 +207,22 @@
     </header>
 
     <main class="container mx-auto px-4 py-8 relative z-10">
+        <!-- Banner con video -->
         <section class="mb-12 fade-in">
-            <div class="relative overflow-hidden rounded-xl shadow-2xl">
-                <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
-                    <img src="images/uncafeconjj (1).png" alt="Featured Image 1" class="w-full h-auto object-cover">
-                    <!-- Add more images here if needed -->
+            <div class="relative overflow-hidden rounded-xl shadow-2xl aspect-w-16 aspect-h-9">
+                <video 
+                    class="w-full h-full object-cover"
+                    autoplay 
+                    loop 
+                    muted 
+                    playsinline
+                >
+                    <source src="path_to_your_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white text-center">DRIVTT Cars<br>Luxury Car Videography</h1>
                 </div>
-                <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 text-gray-800 rounded-full p-2 transition-all duration-300" id="prevBtn">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 text-gray-800 rounded-full p-2 transition-all duration-300" id="nextBtn">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
             </div>
         </section>
 
@@ -390,18 +403,22 @@
         </section>
 
         <!-- Reviews Section -->
-        <section id="reviews" class="mb-12 bg-black rounded-xl shadow-lg p-8 fade-in border border-primary">
+        <section id="reviews" class="mb-12 bg-black rounded-xl shadow-lg p-8 fade-in border border-primary overflow-hidden">
             <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">What Our Clients Say</h2>
-            <div class="relative overflow-hidden">
-                <div id="reviews-container" class="flex transition-transform duration-500 ease-in-out">
+            <div class="relative">
+                <div id="reviews-container" class="flex transition-transform duration-500 ease-in-out overflow-x-auto snap-x snap-mandatory">
                     <!-- Reviews will be inserted here dynamically -->
                 </div>
-                <button id="prevReview" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-primary bg-opacity-50 hover:bg-opacity-75 text-black rounded-full p-2 transition-all duration-300">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button id="nextReview" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-primary bg-opacity-50 hover:bg-opacity-75 text-black rounded-full p-2 transition-all duration-300">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+            </div>
+        </section>
+
+        <!-- Brands Section -->
+        <section id="brands" class="mb-12 fade-in">
+            <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Our Clients</h2>
+            <div class="relative overflow-hidden">
+                <div id="brands-container" class="flex animate-marquee">
+                    <!-- Brand logos will be inserted here dynamically -->
+                </div>
             </div>
         </section>
 
@@ -452,7 +469,9 @@
                         <li><a href="#playlists" class="hover:text-primary transition-colors duration-300">Home</a></li>
                         <li><a href="#noticias" class="hover:text-primary transition-colors duration-300">News</a></li>
                         <li><a href="#contacto" class="hover:text-primary transition-colors duration-300">Contact</a></li>
-                        <li><a href="#boletin" class="hover:text-primary transition-colors duration-300">Newsletter</a></li>
+                        <li><a href="#bole
+
+tin" class="hover:text-primary transition-colors duration-300">Newsletter</a></li>
                     </ul>
                 </div>
                 <div>
@@ -481,214 +500,45 @@
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/971558363696" target="_blank" rel="noopener noreferrer" class="fixed bottom-4 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 z-50">
+    <a href="https://wa.me/971558363696" target="_blank" rel="noopener noreferrer" class="fixed bottom-20 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 z-50">
         <i class="fab fa-whatsapp fa-2x"></i>
     </a>
 
     <!-- Scroll to Top Button -->
-    <button id="scrollToTopBtn" class="fixed bottom-4 left-4 bg-primary text-black p-3 rounded-full shadow-lg hover:bg-secondary transition-colors duration-300 z-50 hidden">
+    <button id="scrollToTopBtn" class="fixed bottom-20 left-4 bg-primary text-black p-3 rounded-full shadow-lg hover:bg-secondary transition-colors duration-300 z-50 hidden">
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <script>
-        // Preloader
-        window.addEventListener('load', function() {
-            document.getElementById('preloader').style.display = 'none';
-        });
+    <!-- Menú inferior estilo aplicación -->
+    <nav class="app-bar py-2 px-4">
+        <ul class="flex justify-around items-center">
+            <li>
+                <a href="#playlists" class="flex flex-col items-center text-primary hover:text-secondary">
+                    <i class="fas fa-home text-xl"></i>
+                    <span class="text-xs">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#galeria" class="flex flex-col items-center text-primary hover:text-secondary">
+                    <i class="fas fa-image text-xl"></i>
+                    <span class="text-xs">Gallery</span>
+                </a>
+            </li>
+            <li>
+                <a href="#contacto" class="flex flex-col items-center text-primary hover:text-secondary">
+                    <i class="fas fa-envelope text-xl"></i>
+                    <span class="text-xs">Contact</span>
+                </a>
+            </li>
+            <li>
+                <button id="install-pwa" class="flex flex-col items-center text-primary hover:text-secondary">
+                    <i class="fas fa-download text-xl"></i>
+                    <span class="text-xs">Install App</span>
+                </button>
+            </li>
+        </ul>
+    </nav>
 
-        // Fade-in effect
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        });
-
-        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
-
-        // Carousel
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('#carousel img');
-        const totalSlides = slides.length;
-
-        function showSlide(n) {
-            currentSlide = (n + totalSlides) % totalSlides;
-            const offset = -currentSlide * 100;
-            document.getElementById('carousel').style.transform = `translateX(${offset}%)`;
-        }
-
-        document.getElementById('prevBtn').addEventListener('click', () => showSlide(currentSlide - 1));
-        document.getElementById('nextBtn').addEventListener('click', () => showSlide(currentSlide + 1));
-
-        // Auto-advance carousel
-        setInterval(() => showSlide(currentSlide + 1), 5000);
-
-        // YouTube API
-        let player;
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('live-video-container', {
-                height: '360',
-                width: '640',
-                videoId: 'VIDEO_ID', // Replace with your video ID
-                playerVars: {
-                    'autoplay': 1,
-                    'controls': 1,
-                },
-                events: {
-                    'onReady': onPlayerReady,
-                }
-            });
-        }
-
-        function onPlayerReady(event) {
-            event.target.playVideo();
-        }
-
-        // Load YouTube IFrame Player API code asynchronously
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        // Load playlist videos
-        function loadPlaylistVideos() {
-            const playlistId = 'YOUR_PLAYLIST_ID'; // Replace with your playlist ID
-            const apiKey = 'YOUR_API_KEY'; // Replace with your YouTube API key
-            const maxResults = 10; // Number of videos to load
-
-            fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${maxResults}&playlistId=${playlistId}&key=${apiKey}`)
-                .then(response => response.json())
-                .then(data => {
-                    const playlistContainer = document.getElementById('playlist-container');
-                    data.items.forEach(item => {
-                        const videoId = item.snippet.resourceId.videoId;
-                        const title = item.snippet.title;
-                        const thumbnail = item.snippet.thumbnails.medium.url;
-
-                        const videoElement = document.createElement('div');
-                        videoElement.className = 'flex-shrink-0 w-64';
-                        videoElement.innerHTML = `
-                            <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" rel="noopener noreferrer" class="block">
-                                <img src="${thumbnail}" alt="${title}" class="w-full h-36 object-cover rounded-lg shadow-md">
-                                <p class="mt-2 text-sm font-semibold">${title}</p>
-                            </a>
-                        `;
-                        playlistContainer.appendChild(videoElement);
-                    });
-                })
-                .catch(error => console.error('Error loading playlist:', error));
-        }
-
-        loadPlaylistVideos();
-
-        // Contact form submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Add your form submission logic here
-            alert('Thank you for your message. We will get back to you soon!');
-            this.reset();
-        });
-
-        // Newsletter form submission
-        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Add your newsletter subscription logic here
-            alert('Thank you for subscribing to our newsletter!');
-            this.reset();
-        });
-
-        // Scroll to top button
-        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.classList.remove('hidden');
-            } else {
-                scrollToTopBtn.classList.add('hidden');
-            }
-        });
-
-        scrollToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Gallery filter
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const filter = button.getAttribute('data-filter');
-                
-                filterButtons.forEach(btn => btn.classList.remove('active', 'bg-primary', 'text-black'));
-                button.classList.add('active', 'bg-primary', 'text-black');
-
-                galleryItems.forEach(item => {
-                    if (filter === 'all' || item.classList.contains(filter)) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Reviews carousel
-        const reviews = [
-            { name: "John Doe", text: "DRIVTT Cars captured my Lamborghini beautifully. The video quality is outstanding!" },
-            { name: "Jane Smith", text: "Professional service and amazing results. Highly recommend for any car enthusiast." },
-            { name: "Mike Johnson", text: "The team at DRIVTT Cars knows how to showcase luxury vehicles. Excellent work!" }
-        ];
-
-        let currentReview = 0;
-
-        function showReview(n) {
-            currentReview = (n + reviews.length) % reviews.length;
-            const container = document.getElementById('reviews-container');
-            container.innerHTML = '';
-            reviews.forEach((review, index) => {
-                const reviewElement = document.createElement('div');
-                reviewElement.className = `w-full flex-shrink-0 p-4 ${index === currentReview ? '' : 'hidden'}`;
-                reviewElement.innerHTML = `
-                    <div class="bg-gray-900 p-6 rounded-lg">
-                        <p class="text-lg mb-4">"${review.text}"</p>
-                        <p class="font-bold text-primary">- ${review.name}</p>
-                    </div>
-                `;
-                container.appendChild(reviewElement);
-            });
-        }
-
-        document.getElementById('prevReview').addEventListener('click', () => showReview(currentReview - 1));
-        document.getElementById('nextReview').addEventListener('click', () => showReview(currentReview + 1));
-
-        showReview(0);
-
-        // Banner messages
-        const bannerMessages = [
-            "Welcome to DRIVTT Cars - Dubai's Premier Car Videography Service",
-            "Book your luxury car video shoot today!",
-            "Follow us on Instagram for daily supercar content"
-        ];
-
-        let currentBannerMessage = 0;
-
-        function rotateBannerMessage() {
-            currentBannerMessage = (currentBannerMessage + 1) % bannerMessages.length;
-            const bannerContainer = document.getElementById('banner-messages');
-            bannerContainer.style.transform = 'translateY(-100%)';
-            setTimeout(() => {
-                bannerContainer.innerHTML = `<p class="text-center w-full">${bannerMessages[currentBannerMessage]}</p>`;
-                bannerContainer.style.transform = 'translateY(0)';
-            }, 500);
-        }
-
-        setInterval(rotateBannerMessage, 5000);
-        rotateBannerMessage();  // Initial call to display the first message
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
