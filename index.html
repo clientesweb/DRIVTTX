@@ -160,10 +160,13 @@
         </svg>
     </div>
 
-    <!-- Top Banner -->
+    <!-- Top Banner with video -->
     <div class="bg-primary text-black py-2 px-4 overflow-hidden">
-        <div id="banner-messages" class="flex transition-transform duration-1000 ease-in-out">
-            <!-- Messages will be inserted here dynamically -->
+        <div id="banner-video" class="w-full h-24">
+            <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                <source src="path/to/your/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </div>
 
@@ -389,19 +392,21 @@
             </div>
         </section>
 
-        <!-- Reviews Section -->
+        <!-- Reviews Section (Updated) -->
         <section id="reviews" class="mb-12 bg-black rounded-xl shadow-lg p-8 fade-in border border-primary">
             <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">What Our Clients Say</h2>
-            <div class="relative overflow-hidden">
-                <div id="reviews-container" class="flex transition-transform duration-500 ease-in-out">
-                    <!-- Reviews will be inserted here dynamically -->
+            <div id="reviews-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Reviews will be added dynamically by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Brands Section (New) -->
+        <section id="marcas" class="mb-12 fade-in">
+            <h2 class="text-4xl font-serif font-bold text-center mb-6 text-primary">Our Partners</h2>
+            <div class="overflow-hidden">
+                <div id="marcas-slider" class="flex animate-marquee">
+                    <!-- Brand logos will be added dynamically by JavaScript -->
                 </div>
-                <button id="prevReview" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-primary bg-opacity-50 hover:bg-opacity-75 text-black rounded-full p-2 transition-all duration-300">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button id="nextReview" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-primary bg-opacity-50 hover:bg-opacity-75 text-black rounded-full p-2 transition-all duration-300">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
             </div>
         </section>
 
@@ -456,98 +461,65 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-2xl font-bold mb-4 text-center md:text-left">Follow Us</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-center md:text-left">Connect With Us</h3>
                     <div class="flex justify-center md:justify-start space-x-4">
-                        <a href="https://facebook.com/drivtt" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-primary transition-colors duration-300">
-                            <i class="fab fa-facebook-f"></i>
+                        <a href="https://facebook.com/drivtt" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary transition-colors duration-300">
+                            <i class="fab fa-facebook-f fa-2x"></i>
                         </a>
-                        <a href="https://twitter.com/drivtt" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-primary transition-colors duration-300">
-                            <i class="fab fa-twitter"></i>
+                        <a href="https://twitter.com/drivtt" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary transition-colors duration-300">
+                            <i class="fab fa-twitter fa-2x"></i>
                         </a>
-                        <a href="https://instagram.com/drivtt" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-primary transition-colors duration-300">
-                            <i class="fab fa-instagram"></i>
+                        <a href="https://instagram.com/drivtt" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary transition-colors duration-300">
+                            <i class="fab fa-instagram fa-2x"></i>
                         </a>
-                        <a href="https://youtube.com/drivtt" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-primary transition-colors duration-300">
-                            <i class="fab fa-youtube"></i>
+                        <a href="https://youtube.com/drivtt" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary transition-colors duration-300">
+                            <i class="fab fa-youtube fa-2x"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-primary border-opacity-20 text-center">
-                <p>&copy; 2024 DRIVTT Cars. All rights reserved. | Developed by <a href="https://dualitydomain.github.io/Dualitydomain/" target="_blank" rel="noopener" class="text-primary hover:underline">Duality Domain</a></p>
+            <div class="mt-8 text-center">
+                <p>&copy; 2023 DRIVTT Cars. All rights reserved.</p>
+                <p class="mt-2">Powered by <a href="https://dualitydomain.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary transition-colors duration-300">Duality Domain</a></p>
             </div>
         </div>
     </footer>
 
-    <div class="fixed bottom-20 right-6 z-50">
-        <button id="whatsappBtn" class="bg-green-500 text-white rounded-full p-4 shadow-lg transition-transform duration-300 hover:scale-110 bounce" aria-label="Chat with DRIVTT Cars on WhatsApp">
-            <i class="fab fa-whatsapp text-2xl"></i>
-        </button>
-    </div>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/971558363696" target="_blank" rel="noopener noreferrer" class="fixed bottom-20 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 z-50">
+        <i class="fab fa-whatsapp fa-2x"></i>
+    </a>
 
-    <div id="whatsappModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-        <div class="bg-white rounded-lg p-6 w-full max-w-md">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-2xl font-bold text-primary">Chat with DRIVTT Cars on WhatsApp</h2>
-                <button class="text-gray-500 hover:text-gray-700" id="closeModal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <p class="mb-4">Write your message:</p>
-            <textarea id="whatsappMessage" class="w-full p-2 border border-gray-300 rounded mb-4" rows="4" placeholder="Type your message here..."></textarea>
-            <button id="sendMessageBtn" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition-colors duration-300">
-                <i class="fab fa-whatsapp mr-2"></i> Send message
-            </button>
-        </div>
-    </div>
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="fixed bottom-20 left-4 bg-primary text-black p-3 rounded-full shadow-lg hover:bg-secondary transition-colors duration-300 z-50 hidden">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
-    <nav class="fixed bottom-0 left-0 right-0 bg-black shadow-lg py-2 px-4 flex justify-around items-center z-40 border-t border-primary">
-        <a href="#playlists" class="flex flex-col items-center text-xs text-white hover:text-primary transition-colors duration-300">
-            <i class="fas fa-home text-xl mb-1"></i>
-            <span>Home</span>
+    <!-- Install PWA Button -->
+    <button id="installPWA" class="fixed top-4 right-4 bg-primary text-black py-2 px-4 rounded-full shadow-lg hover:bg-secondary transition-colors duration-300 z-50 hidden">
+        Install App
+    </button>
+
+    <!-- Bottom App-Style Menu -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-black border-t border-primary py-2 px-4 flex justify-around items-center z-50">
+        <a href="#home" class="text-primary hover:text-secondary transition-colors duration-300">
+            <i class="fas fa-home"></i>
+            <span class="text-xs block">Home</span>
         </a>
-        <a href="#youtube-shorts" class="flex flex-col items-center text-xs text-white hover:text-primary transition-colors duration-300">
-            <i class="fas fa-video text-xl mb-1"></i>
-            <span>Shorts</span>
+        <a href="#gallery" class="text-primary hover:text-secondary transition-colors duration-300">
+            <i class="fas fa-image"></i>
+            <span class="text-xs block">Gallery</span>
         </a>
-        <a href="#galeria" class="flex flex-col items-center text-xs text-white hover:text-primary transition-colors duration-300">
-            <i class="fas fa-images text-xl mb-1"></i>
-            <span>Gallery</span>
+        <a href="#services" class="text-primary hover:text-secondary transition-colors duration-300">
+            <i class="fas fa-video"></i>
+            <span class="text-xs block">Services</span>
         </a>
-        <a href="#contacto" class="flex flex-col items-center text-xs text-white hover:text-primary transition-colors duration-300">
-            <i class="fas fa-envelope text-xl mb-1"></i>
-            <span>Contact</span>
+        <a href="#contact" class="text-primary hover:text-secondary transition-colors duration-300">
+            <i class="fas fa-envelope"></i>
+            <span class="text-xs block">Contact</span>
         </a>
     </nav>
 
-    <script src="script.js"></script>
-    <script>
-        // JavaScript for gallery filter functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const filter = button.getAttribute('data-filter');
-
-                    // Update active buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active', 'bg-primary', 'text-black'));
-                    filterButtons.forEach(btn => btn.classList.add('bg-gray-200', 'text-gray-800'));
-                    button.classList.add('active', 'bg-primary', 'text-black');
-                    button.classList.remove('bg-gray-200', 'text-gray-800');
-
-                    // Filter gallery items
-                    galleryItems.forEach(item => {
-                        if (filter === 'all' || item.classList.contains(filter)) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
