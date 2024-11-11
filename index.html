@@ -122,8 +122,17 @@
             opacity: 1;
         }
 
-        /* Evitar el desplazamiento horizontal en toda la página */
-        body {
+        /* Evitar el desplazamiento horizontal */
+        html, body {
+            width: 100%;
+            overflow-x: hidden; /* Eliminar scroll horizontal */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Asegurar que no haya desbordamiento horizontal en elementos específicos */
+        * {
+            box-sizing: border-box;
             overflow-x: hidden;
         }
 
