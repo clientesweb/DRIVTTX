@@ -56,98 +56,138 @@
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#D4AF37',
-                        secondary: '#B8860B',
-                        accent: '#000000',
-                    },
-                    fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                        serif: ['Merriweather', 'serif'],
-                    },
-                }
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#D4AF37',
+                    secondary: '#B8860B',
+                    accent: '#000000',
+                },
+                fontFamily: {
+                    sans: ['Poppins', 'sans-serif'],
+                    serif: ['Merriweather', 'serif'],
+                },
             }
         }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .bg-gradient-primary {
-                background-image: linear-gradient(135deg, #D4AF37, #B8860B, #000000);
-            }
-            .text-shadow {
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            }
-            .pulse {
-                animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            }
-            @keyframes pulse {
-                0%, 100% {
-                    opacity: 1;
-                }
-                50% {
-                    opacity: .5;
-                }
-            }
-            .animate-marquee {
-                animation: marquee 20s linear infinite;
-            }
-            @keyframes marquee {
-                0% { transform: translateX(100%); }
-                100% { transform: translateX(-100%); }
-            }
-            .bounce {
-                animation: bounce 1s infinite;
-            }
-            @keyframes bounce {
-                0%, 100% {
-                    transform: translateY(-25%);
-                    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-                }
-                50% {
-                    transform: translateY(0);
-                    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-                }
-            }
-            .fade-in {
-                opacity: 0;
-                transition: opacity 1s ease-in-out;
-            }
-            .fade-in.visible {
+    }
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style type="text/tailwindcss">
+    @layer utilities {
+        .bg-gradient-primary {
+            background-image: linear-gradient(135deg, #D4AF37, #B8860B, #000000);
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% {
                 opacity: 1;
             }
-            .horizontal-scroll {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                gap: 1rem;
-                padding: 1rem;
-            }
-            .horizontal-scroll::-webkit-scrollbar {
-                display: none;
-            }
-            .scroll-item {
-                scroll-snap-align: start;
-                flex: 0 0 auto;
-            }
-            .app-bar {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background-color: rgba(0, 0, 0, 0.8);
-                backdrop-filter: blur(10px);
-                z-index: 50;
+            50% {
+                opacity: .5;
             }
         }
-    </style>
+        .animate-marquee {
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .bounce {
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(-25%);
+                animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+            }
+            50% {
+                transform: translateY(0);
+                animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            }
+        }
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+        }
+        
+        /* Evitar el desplazamiento horizontal en toda la página */
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Sección de scroll horizontal ajustada */
+        .horizontal-scroll {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            gap: 1rem;
+            padding: 1rem;
+            max-width: 100%; /* Evitar desbordamiento horizontal */
+            flex-wrap: nowrap; /* Evitar apilamiento de elementos */
+        }
+
+        /* Eliminar la barra de desplazamiento */
+        .horizontal-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scroll-item {
+            scroll-snap-align: start;
+            flex: 0 0 auto;
+            width: 100%; /* Cada elemento ocupa todo el espacio disponible */
+        }
+
+        /* Media query para pantallas más pequeñas */
+        @media (max-width: 768px) {
+            .horizontal-scroll {
+                padding: 0.5rem; /* Reducir padding en pantallas pequeñas */
+            }
+
+            .scroll-item {
+                width: 80%; /* Ajustar el tamaño de los elementos en pantallas más pequeñas */
+            }
+        }
+
+        .app-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 50;
+        }
+
+        /* Asegurar que los iframe sean responsivos */
+        .scroll-item iframe {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Contenedor con un ancho máximo */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+    }
+</style>
 </head>
 <body class="font-sans bg-black text-white relative">
     <!-- Preloader -->
